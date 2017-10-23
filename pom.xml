@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.vinci.commons</groupId>
+    <artifactId>vinci-commons-build</artifactId>
+    <version>${vinci.commons.version}</version>
+    <modules>
+        <module>core</module>
+        <module>core-reflect</module>
+        <module>orm-mybatis</module>
+        <module>database</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.maven.plugin}</version>
+                <configuration>
+                    <source>${compiler.source}</source>
+                    <target>${compiler.target}</target>
+                    <encoding>${compiler.encoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <vinci.commons.version>1.0-SNAPSHOT</vinci.commons.version>
+        <junit.version>4.12</junit.version>
+
+        <compiler.maven.plugin>3.6.1</compiler.maven.plugin>
+        <compiler.source>1.8</compiler.source>
+        <compiler.target>1.8</compiler.target>
+        <compiler.encoding>UTF-8</compiler.encoding>
+
+        <nexusUri>http://ttestplus.jointforce.com:8081</nexusUri>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <!-- Releases版本 -->
+        <!--<repository>
+            <id>nexus-snapshots</id>
+            <url>${nexusUri}/nexus/content/repositories/vinci-snapshots/</url>
+        </repository>-->
+        <!-- Snapshots版本 -->
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>${nexusUri}/nexus/content/repositories/vinci-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>${nexusUri}/nexus/content/repositories/central/</url>
+        </repository>
+        <repository>
+            <id>vinci-snapshots</id>
+            <url>${nexusUri}/nexus/content/repositories/vinci-snapshots/</url>
+        </repository>
+    </repositories>
+</project>
