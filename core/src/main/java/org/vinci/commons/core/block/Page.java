@@ -40,42 +40,70 @@ public class Page extends Limit {
         return page;
     }
 
-    public static class MaxSize {
-        private static int                  value       = 2000;
-        private static Object               lock        = new Object();
-        private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+    public static class Size {
+        private static final ThreadLocal<Integer> THREAD_LOCAL = new ThreadLocal<>();
+        private static final Object               LOCK         = new Object();
+        private static       int                  VALUE        = 10;
 
         public static int getValue() {
-            synchronized (lock) {
-                if (threadLocal.get() != null) {
-                    int value = threadLocal.get();
-                    threadLocal.set(null);
+            synchronized (LOCK) {
+                if (THREAD_LOCAL.get() != null) {
+                    int value = THREAD_LOCAL.get();
+                    THREAD_LOCAL.set(null);
                     return value;
                 } else {
+                    return Size.VALUE;
+                }
+            }
+        }
+
+        public static void setValue(int VALUE) {
+            Size.VALUE = VALUE;
+        }
+
+        public static void setOneTimeValue(int value) {
+            synchronized (LOCK) {
+                THREAD_LOCAL.set(value);
+            }
+        }
+    }
+
+    public static class MaxSize {
+        private static final Object               LOCK         = new Object();
+        private static final ThreadLocal<Integer> THREAD_LOCAL = new ThreadLocal<>();
+        private static       int                  VALUE        = 2000;
+
+        public static int getValue() {
+            synchronized (LOCK) {
+                if (THREAD_LOCAL.get() != null) {
+                    int value = THREAD_LOCAL.get();
+                    THREAD_LOCAL.set(null);
                     return value;
+                } else {
+                    return MaxSize.VALUE;
                 }
             }
         }
 
         public static void setValue(int value) {
-            synchronized (lock) {
-                MaxSize.value = value;
+            synchronized (LOCK) {
+                MaxSize.VALUE = value;
             }
         }
 
         public static void setOneTimeValue(int value) {
-            synchronized (lock) {
-                threadLocal.set(value);
+            synchronized (LOCK) {
+                THREAD_LOCAL.set(value);
             }
         }
 
         public static void reset() {
-            value = 2000;
+            VALUE = 2000;
         }
 
         public static int InValue(int value) {
-            if (value > MaxSize.value) {
-                return MaxSize.value;
+            if (value > MaxSize.VALUE) {
+                return MaxSize.VALUE;
             } else if (value < 0) {
                 return 0;
             } else {

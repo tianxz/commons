@@ -1,5 +1,7 @@
 package org.vinci.commons.core.result;
 
+import org.vinci.commons.core.block.Page;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,6 +15,12 @@ public class PageData<T> implements Serializable {
     private List<T> data;
 
     public PageData() {
+    }
+
+    public PageData(long total, List<T> data) {
+        this.pageSize = Page.Size.getValue();
+        this.total = total;
+        this.data = data;
     }
 
     public PageData(int pageIndex, int pageSize, long total, List<T> data) {

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>vinci-commons-build</artifactId>
         <groupId>org.vinci.commons</groupId>
-        <version>${vinci.commons.version}</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
