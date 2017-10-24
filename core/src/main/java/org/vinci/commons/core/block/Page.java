@@ -4,6 +4,7 @@ package org.vinci.commons.core.block;
  * Created by XizeTian on 2017/10/23.
  */
 public class Page extends Limit {
+    private final static Size maxSize = new Size(2000);
     private int pageIndex;
     private int pageSize;
 
@@ -26,8 +27,8 @@ public class Page extends Limit {
         if (pageSize <= 0) {
             pageSize = 1;
         }
-        if (pageSize > MaxSize.getValue()) {
-            pageSize = MaxSize.getValue();
+        if (pageSize > maxSize.getValue()) {
+            pageSize = maxSize.getValue();
         }
 
         long size   = pageSize;
@@ -41,69 +42,50 @@ public class Page extends Limit {
     }
 
     public static class Size {
-        private static final ThreadLocal<Integer> THREAD_LOCAL = new ThreadLocal<>();
-        private static final Object               LOCK         = new Object();
-        private static       int                  VALUE        = 10;
+        protected final Object               LOCK         = new Object();
+        protected final ThreadLocal<Integer> THREAD_LOCAL = new ThreadLocal<>();
+        protected       int                  defValue     = 10;
+        protected       int                  value        = defValue;
 
-        public static int getValue() {
+        public Size() {
+
+        }
+
+        public Size(int defValue) {
+            this.defValue = defValue;
+        }
+
+        public int getValue() {
             synchronized (LOCK) {
                 if (THREAD_LOCAL.get() != null) {
                     int value = THREAD_LOCAL.get();
                     THREAD_LOCAL.set(null);
                     return value;
                 } else {
-                    return Size.VALUE;
+                    return this.value;
                 }
             }
         }
 
-        public static void setValue(int VALUE) {
-            Size.VALUE = VALUE;
-        }
-
-        public static void setOneTimeValue(int value) {
+        public void setValue(int value) {
             synchronized (LOCK) {
-                THREAD_LOCAL.set(value);
-            }
-        }
-    }
-
-    public static class MaxSize {
-        private static final Object               LOCK         = new Object();
-        private static final ThreadLocal<Integer> THREAD_LOCAL = new ThreadLocal<>();
-        private static       int                  VALUE        = 2000;
-
-        public static int getValue() {
-            synchronized (LOCK) {
-                if (THREAD_LOCAL.get() != null) {
-                    int value = THREAD_LOCAL.get();
-                    THREAD_LOCAL.set(null);
-                    return value;
-                } else {
-                    return MaxSize.VALUE;
-                }
+                this.value = value;
             }
         }
 
-        public static void setValue(int value) {
-            synchronized (LOCK) {
-                MaxSize.VALUE = value;
-            }
-        }
-
-        public static void setOneTimeValue(int value) {
+        public void setOneTimeValue(int value) {
             synchronized (LOCK) {
                 THREAD_LOCAL.set(value);
             }
         }
 
-        public static void reset() {
-            VALUE = 2000;
+        public void reset() {
+            this.value = defValue;
         }
 
-        public static int InValue(int value) {
-            if (value > MaxSize.VALUE) {
-                return MaxSize.VALUE;
+        public int InValue(int value) {
+            if (value > this.value) {
+                return this.value;
             } else if (value < 0) {
                 return 0;
             } else {

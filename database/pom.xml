@@ -11,5 +11,11 @@
 
     <artifactId>database</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.vinci.commons</groupId>
+            <artifactId>core</artifactId>
+            <version>${vinci.commons.version}</version>
+        </dependency>
+    </dependencies>
 </project>

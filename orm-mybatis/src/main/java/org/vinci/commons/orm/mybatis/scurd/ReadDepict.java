@@ -5,14 +5,14 @@ import org.vinci.commons.database.JdbcOperator;
 public class ReadDepict extends CurdAbstractDepict<ReadDepict> {
     private JdbcOperator operator = JdbcOperator.EQ;
 
-    public ReadDepict(String fieldName, String sqlName) {
+    public ReadDepict(String fieldName, String columnName) {
         super.setFieldName(fieldName);
-        super.setSqlName(sqlName);
+        super.setColumnName(columnName);
     }
 
-    public ReadDepict(String fieldName, String sqlName, CurdAbstractDepictMap<ReadDepict> curdAbstractDepictMap) {
+    public ReadDepict(String fieldName, String columnName, CurdAbstractDepictMap<ReadDepict> curdAbstractDepictMap) {
         super.setFieldName(fieldName);
-        super.setSqlName(sqlName);
+        super.setColumnName(columnName);
         super.setOwnerDepictMap(curdAbstractDepictMap);
     }
 

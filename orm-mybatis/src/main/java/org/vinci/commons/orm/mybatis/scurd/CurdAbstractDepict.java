@@ -1,8 +1,6 @@
 package org.vinci.commons.orm.mybatis.scurd;
 
-
-import org.vinci.commons.database.JdbcType;
-import org.vinci.commons.database.metadata.SimpleColumn;
+import org.vinci.commons.database.simple.SimpleColumn;
 import org.vinci.commons.java.reflect.SimpleField;
 
 import java.security.acl.NotOwnerException;
@@ -13,11 +11,11 @@ import java.util.List;
  * java field 与 database column 的映射
  * Created by XizeTian on 2017/10/19.
  */
-public abstract class CurdAbstractDepict<R> implements SimpleColumn, SimpleField {
+public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> implements SimpleColumn, SimpleField {
     private String   fieldName;
     private Class<?> fieldType;
-    private String   sqlName;
-    private JdbcType sqlType;
+    private String   columnName;
+    private String   dataType;
     private boolean  isInclude;
     private List<Object> multiValue = new ArrayList<>();
     private CurdAbstractDepictMap ownerDepictMap;
@@ -26,8 +24,8 @@ public abstract class CurdAbstractDepict<R> implements SimpleColumn, SimpleField
         this.fieldName = fieldName;
     }
 
-    protected void setSqlName(String sqlName) {
-        this.sqlName = sqlName;
+    protected void setColumnName(String columnName) {
+        this.columnName = columnName;
     }
 
     @Override
@@ -40,21 +38,23 @@ public abstract class CurdAbstractDepict<R> implements SimpleColumn, SimpleField
         return (R) this;
     }
 
+    @Override
     public String getFieldName() {
         return fieldName;
     }
 
-    public String getSqlName() {
-        return sqlName;
+    @Override
+    public String getColumnName() {
+        return columnName;
     }
 
     @Override
-    public JdbcType getSqlType() {
-        return sqlType;
+    public String getDataType() {
+        return dataType;
     }
 
-    public R setSqlType(JdbcType sqlType) {
-        this.sqlType = sqlType;
+    public R setSqlType(String dataType) {
+        this.dataType = dataType;
         return (R) this;
     }
 
