@@ -10,8 +10,8 @@
     <modules>
         <module>core</module>
         <module>core-reflect</module>
-        <module>orm-mybatis</module>
         <module>database</module>
+        <module>orm-mybatis</module>
     </modules>
     <packaging>pom</packaging>
 
