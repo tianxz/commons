@@ -3,8 +3,6 @@ package org.vinci.commons.core.test.result;
 import org.junit.Test;
 import org.vinci.commons.core.result.PageData;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by XizeTian on 2017/10/20.
  */

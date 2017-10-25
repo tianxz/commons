@@ -1,4 +1,4 @@
-package org.vinci.commons.core.block;
+package org.vinci.commons.database.block;
 
 
 public class Limit {

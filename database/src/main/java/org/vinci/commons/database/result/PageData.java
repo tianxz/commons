@@ -1,4 +1,4 @@
-package org.vinci.commons.core.result;
+package org.vinci.commons.database.result;
 
 import org.vinci.commons.core.block.Page;
 

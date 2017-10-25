@@ -1,4 +1,4 @@
-package org.vinci.commons.core.block;
+package org.vinci.commons.database.block;
 
 /**
  * Created by XizeTian on 2017/10/23.
