@@ -1,7 +1,9 @@
-package org.vinci.commons.core.test.result;
+package org.vinci.commons.database.test;
 
 import org.junit.Test;
 import org.vinci.commons.core.result.PageData;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by XizeTian on 2017/10/20.
