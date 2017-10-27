@@ -1,6 +1,6 @@
 package org.vinci.commons.database.result;
 
-import org.vinci.commons.core.block.Page;
+import org.vinci.commons.database.block.Page;
 
 import java.io.Serializable;
 import java.util.List;

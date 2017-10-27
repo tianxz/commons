@@ -1,7 +1,7 @@
 package org.vinci.commons.database.test;
 
 import org.junit.Test;
-import org.vinci.commons.core.result.PageData;
+import org.vinci.commons.database.result.PageData;
 
 import static org.junit.Assert.*;
 
