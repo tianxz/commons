@@ -1,7 +1,7 @@
 package org.vinci.commons.orm.mybatis.scurd;
 
+import org.vinci.commons.core.reflect.SimpleField;
 import org.vinci.commons.database.simple.SimpleColumn;
-import org.vinci.commons.java.reflect.SimpleField;
 
 import java.security.acl.NotOwnerException;
 import java.util.ArrayList;

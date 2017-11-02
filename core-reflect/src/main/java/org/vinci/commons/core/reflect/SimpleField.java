@@ -1,4 +1,4 @@
-package org.vinci.commons.java.reflect;
+package org.vinci.commons.core.reflect;
 
 /**
  * Created by XizeTian on 2017/10/23.

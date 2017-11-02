@@ -10,6 +10,7 @@
     <modules>
         <module>core</module>
         <module>core-reflect</module>
+        <module>core-serializer</module>
         <module>database</module>
         <module>orm-mybatis</module>
     </modules>
@@ -34,6 +35,7 @@
         <vinci.commons.version>1.0-SNAPSHOT</vinci.commons.version>
         <junit.version>4.12</junit.version>
         <slf4j.version>1.7.25</slf4j.version>
+        <jackson.databind.version>2.9.2</jackson.databind.version>
 
         <compiler.maven.plugin>3.6.1</compiler.maven.plugin>
         <compiler.source>1.8</compiler.source>
