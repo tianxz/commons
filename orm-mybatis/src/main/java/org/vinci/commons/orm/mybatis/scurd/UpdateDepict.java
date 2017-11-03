@@ -5,4 +5,10 @@ public class UpdateDepict extends CurdAbstractDepict<UpdateDepict> {
         super.setFieldName(fieldName);
         super.setColumnName(columnName);
     }
+
+    public UpdateDepict(String fieldName, String columnName, CurdAbstractDepictMap<UpdateDepict> curdAbstractDepictMap) {
+        super.setFieldName(fieldName);
+        super.setColumnName(columnName);
+        super.setOwnerDepictMap(curdAbstractDepictMap);
+    }
 }

@@ -1,9 +1,9 @@
 package org.vinci.commons.orm.mybatis.scurd;
 
+import org.vinci.commons.core.exception.NotOwnerException;
 import org.vinci.commons.core.reflect.SimpleField;
 import org.vinci.commons.database.simple.SimpleColumn;
 
-import java.security.acl.NotOwnerException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +12,11 @@ import java.util.List;
  * Created by XizeTian on 2017/10/19.
  */
 public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> implements SimpleColumn, SimpleField {
-    private String   fieldName;
+    private String fieldName;
     private Class<?> fieldType;
-    private String   columnName;
-    private String   dataType;
-    private boolean  isInclude;
+    private String columnName;
+    private String dataType;
+    private boolean isInclude;
     private List<Object> multiValue = new ArrayList<>();
     private CurdAbstractDepictMap ownerDepictMap;
 
@@ -118,11 +118,11 @@ public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> implement
         return (R) this;
     }
 
-    public <T extends CurdAbstractDepictMap> T getOwnerDepictMap(Class<T> clazz) throws NotOwnerException {
+    public <T extends CurdAbstractDepictMap> T getOwnerDepictMap(Class<T> clazz) {
         return getOwnerDepictMap();
     }
 
-    public <T extends CurdAbstractDepictMap> T getOwnerDepictMap() throws NotOwnerException {
+    public <T extends CurdAbstractDepictMap> T getOwnerDepictMap() {
         if (ownerDepictMap == null) {
             throw new NotOwnerException();
         }
