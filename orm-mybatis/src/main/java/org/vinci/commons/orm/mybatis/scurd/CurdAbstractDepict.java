@@ -112,7 +112,7 @@ public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> implement
     public R putMultiValue(Object... values) {
         if (values != null && values.length > 0) {
             for (int i = 0; i < values.length; i++) {
-                this.multiValue.add(values[0]);
+                this.multiValue.add(values[i]);
             }
         }
         return (R) this;
