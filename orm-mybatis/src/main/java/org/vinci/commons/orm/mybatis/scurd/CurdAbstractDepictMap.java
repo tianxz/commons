@@ -13,7 +13,9 @@ public abstract class CurdAbstractDepictMap<T extends CurdAbstractDepict> extend
     public List<T> toList() {
         List<T> lst = new ArrayList<>();
         for (String key : this.keySet()) {
-            lst.add(this.get(key));
+            if (this.get(key).isInclude()) {
+                lst.add(this.get(key));
+            }
         }
         return lst;
     }
