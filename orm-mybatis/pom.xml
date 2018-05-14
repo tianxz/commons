@@ -24,13 +24,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.vinci.commons</groupId>
-            <artifactId>core-reflect</artifactId>
-            <version>${vinci.commons.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>${mybatis.version}</version>

@@ -9,8 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>core</module>
-        <module>core-reflect</module>
-        <module>core-serializer</module>
         <module>database</module>
         <module>orm-mybatis</module>
     </modules>
@@ -42,7 +40,7 @@
         <compiler.target>1.8</compiler.target>
         <compiler.encoding>UTF-8</compiler.encoding>
 
-        <nexusUri>http://ttestplus.jointforce.com:8081</nexusUri>
+        <nexusUri>http://192.168.1.254:8081/</nexusUri>
     </properties>
 
     <dependencies>
@@ -61,26 +59,20 @@
     </dependencies>
 
     <distributionManagement>
-        <!-- Releases版本 -->
-        <!--<repository>
-            <id>nexus-snapshots</id>
-            <url>${nexusUri}/nexus/content/repositories/vinci-snapshots/</url>
-        </repository>-->
-        <!-- Snapshots版本 -->
         <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>${nexusUri}/nexus/content/repositories/vinci-snapshots/</url>
+            <id>maven-vinci-mixed</id>
+            <url>${nexusUri}/repository/maven-vinci-mixed/</url>
         </snapshotRepository>
     </distributionManagement>
 
     <repositories>
         <repository>
-            <id>nexus</id>
-            <url>${nexusUri}/nexus/content/repositories/central/</url>
+            <id>maven-central</id>
+            <url>${nexusUri}/repository/maven-central/</url>
         </repository>
         <repository>
-            <id>vinci-snapshots</id>
-            <url>${nexusUri}/nexus/content/repositories/vinci-snapshots/</url>
+            <id>maven-vinci-mixed</id>
+            <url>${nexusUri}/repository/maven-vinci-mixed/</url>
         </repository>
     </repositories>
 </project>

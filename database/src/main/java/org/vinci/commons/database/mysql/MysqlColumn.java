@@ -1,11 +1,9 @@
 package org.vinci.commons.database.mysql;
 
-import org.vinci.commons.database.simple.SimpleColumn;
-
 /**
  * Created by vinci on 2017-10-24 16:19:27.
  */
-public class MysqlColumn implements SimpleColumn {
+public class MysqlColumn {
     //表目录
     private String tableCatalog;
 

@@ -12,7 +12,7 @@
     <artifactId>core</artifactId>
 
     <properties>
-        <jodd.version>3.9.1</jodd.version>
+        <jodd.version>4.1.5</jodd.version>
     </properties>
 
     <dependencies>
@@ -20,6 +20,12 @@
             <groupId>org.jodd</groupId>
             <artifactId>jodd-core</artifactId>
             <version>${jodd.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind.version}</version>
         </dependency>
     </dependencies>
 </project>

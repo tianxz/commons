@@ -1,8 +1,6 @@
 package org.vinci.commons.orm.mybatis.scurd;
 
 import org.vinci.commons.core.exception.NotOwnerException;
-import org.vinci.commons.core.reflect.SimpleField;
-import org.vinci.commons.database.simple.SimpleColumn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
  * java field 与 database column 的映射
  * Created by XizeTian on 2017/10/19.
  */
-public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> implements SimpleColumn, SimpleField {
+public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> {
     private String fieldName;
     private Class<?> fieldType;
     private String columnName;
@@ -28,29 +26,9 @@ public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> implement
         this.columnName = columnName;
     }
 
-    @Override
-    public Class<?> getFieldType() {
-        return fieldType;
-    }
-
     public R setFieldType(Class<?> fieldType) {
         this.fieldType = fieldType;
         return (R) this;
-    }
-
-    @Override
-    public String getFieldName() {
-        return fieldName;
-    }
-
-    @Override
-    public String getColumnName() {
-        return columnName;
-    }
-
-    @Override
-    public String getDataType() {
-        return dataType;
     }
 
     public R setSqlType(String dataType) {
