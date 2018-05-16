@@ -11,6 +11,7 @@
         <module>core</module>
         <module>database</module>
         <module>orm-mybatis</module>
+        <module>did-client</module>
     </modules>
     <packaging>pom</packaging>
 

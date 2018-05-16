@@ -10,11 +10,11 @@ import java.util.List;
  * Created by XizeTian on 2017/10/19.
  */
 public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> {
-    private String fieldName;
+    private String   fieldName;
     private Class<?> fieldType;
-    private String columnName;
-    private String dataType;
-    private boolean isInclude;
+    private String   columnName;
+    private String   dataType;
+    private boolean  isInclude;
     private List<Object> multiValue = new ArrayList<>();
     private CurdAbstractDepictMap ownerDepictMap;
 
@@ -65,6 +65,7 @@ public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> {
 
     public R setValue(Object value) {
         this.multiValue.add(value);
+        this.include();
         return (R) this;
     }
 
@@ -109,6 +110,14 @@ public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> {
 
     public void setOwnerDepictMap(CurdAbstractDepictMap ownerDepictMap) {
         this.ownerDepictMap = ownerDepictMap;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public String getColumnName() {
+        return columnName;
     }
 
     public R reset() {
