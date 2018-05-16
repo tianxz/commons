@@ -17,6 +17,7 @@ public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> {
     private boolean  isInclude;
     private List<Object> multiValue = new ArrayList<>();
     private CurdAbstractDepictMap ownerDepictMap;
+    private String lo = "and";
 
     protected void setFieldName(String fieldName) {
         this.fieldName = fieldName;
@@ -24,6 +25,20 @@ public abstract class CurdAbstractDepict<R extends CurdAbstractDepict> {
 
     protected void setColumnName(String columnName) {
         this.columnName = columnName;
+    }
+
+    public R and() {
+        this.lo = "and";
+        return (R) this;
+    }
+
+    public R or() {
+        this.lo = "or";
+        return (R) this;
+    }
+
+    public String getLo() {
+        return lo;
     }
 
     public R setFieldType(Class<?> fieldType) {

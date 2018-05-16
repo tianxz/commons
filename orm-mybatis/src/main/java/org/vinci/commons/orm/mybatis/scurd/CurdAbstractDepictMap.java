@@ -2,13 +2,14 @@ package org.vinci.commons.orm.mybatis.scurd;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
  * 提供快速配置curd
  * Created by XizeTian on 2017/10/19.
  */
-public abstract class CurdAbstractDepictMap<T extends CurdAbstractDepict> extends HashMap<String, T> {
+public abstract class CurdAbstractDepictMap<T extends CurdAbstractDepict> extends LinkedHashMap<String, T> {
 
     public List<T> toList() {
         List<T> lst = new ArrayList<>();
